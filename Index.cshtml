@@ -1,0 +1,68 @@
+﻿@model ACMEBowling.Models.GameEnterViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    <div style="margin-top:20px;">
+        <label>Enter Game Id:</label>@Html.TextBoxFor(m => m.game.Id)
+    </div>
+
+
+    <button type="submit" value="Enter" name="Enter" id="btnEnter">Enter</button>
+}
+
+<div id="GameScore">@Html.DisplayFor(m => m.GameScore)</div>
+@Html.DisplayFor(m => m.frameScore)
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Frame 1
+            </th>
+            <th>
+                Frame 2
+            </th>
+            <th>
+                Frame 3
+            </th>
+            <th>
+                Frame 4
+            </th>
+            <th>
+                Frame 5
+            </th>
+            <th>
+                Frame 6
+            </th>
+            <th>
+                Frame 7
+            </th>
+            <th>
+                Frame 8
+            </th>
+            <th>
+                Frame 9
+            </th>
+            <th>
+                Frame 10
+            </th>
+            <th>
+                Total Score
+            </th>
+        </th>
+    </thead>
+    <tr>
+        @foreach (var item in Model.frameScore)
+        {
+
+            <td>@Html.DisplayFor(modelItem => item)</td>
+
+        }
+        <td>@Html.DisplayFor(m => m.GameScore)</td>
+    </tr>
+</table>
